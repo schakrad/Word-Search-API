@@ -49,9 +49,9 @@ public class wordGridService {
 			    contents[i][j]='-';
 			    }
 			
-		   Collections.shuffle(list);
+		   
 		   for(String word: words) {
-			   
+			   Collections.shuffle(list);
 			    for(Coordinate l : list) {
 			    	  int x =l.x;
 			    	  int y =l.y;
@@ -150,7 +150,8 @@ public class wordGridService {
 				if(coordinate.y + word.length() >gridsize ) return false;
 					for(int i=0;i<word.length();i++) 
 					{
-					   if(contents[coordinate.x][coordinate.y+i]!='-') {
+					   char c = contents[coordinate.x][coordinate.y+i];
+					   if(c!='-' && c!=word.charAt(i)) {
 					         return false;
 					   }
 					} 
@@ -160,7 +161,8 @@ public class wordGridService {
 				if(coordinate.x + word.length() > gridsize ) return false;
 					for(int i=0;i<word.length();i++) 
 					{
-					   if(contents[coordinate.x+i][coordinate.y]!='-') {
+					   char c = contents[coordinate.x+i][coordinate.y];
+					   if(c!='-' && c!=word.charAt(i)) {
 					         return false;
 					   }
 					} 
@@ -170,7 +172,8 @@ public class wordGridService {
 				if(coordinate.x + word.length() > gridsize || coordinate.y + word.length() > gridsize  ) return false;
 					for(int i=0;i<word.length();i++) 
 					{
-					   if(contents[coordinate.x+i][coordinate.y+i]!='-') {
+						char c =contents[coordinate.x+i][coordinate.y+i];
+					   if(c!='-'&& c!=word.charAt(i)) {
 					         return false;
 					   }
 					} 
@@ -181,7 +184,8 @@ public class wordGridService {
 				if(coordinate.y < word.length()  ) return false;
 					for(int i=0;i<word.length();i++) 
 					{
-					   if(contents[coordinate.x][coordinate.y-i]!='-') {
+					   char c = contents[coordinate.x][coordinate.y-i];
+					   if(c!='-'&& c!= word.charAt(i)) {
 					         return false;
 					   }
 					} 
@@ -191,7 +195,8 @@ public class wordGridService {
 				if(coordinate.x < word.length() ) return false;
 					for(int i=0;i<word.length();i++) 
 					{
-					   if(contents[coordinate.x-i][coordinate.y]!='-') {
+					char c = contents[coordinate.x-i][coordinate.y];
+					   if(c!='-' && c!=word.charAt(i)) {
 					         return false;
 					   }
 					} 
@@ -201,19 +206,14 @@ public class wordGridService {
 				if(coordinate.x <word.length() || coordinate.y < word.length()) return false;
 					for(int i=0;i<word.length();i++) 
 					{
-					   if(contents[coordinate.x-i][coordinate.y-i]!='-') {
+					   char c = contents[coordinate.x-i][coordinate.y-i];
+					   if(c!='-' && c!=word.charAt(i)) {
 					         return false;
 					   }
 					} 
 				
 				break;	
-				
-				
-				
-				
-				
-				
-				
+
 			}
 	         return true;
 			
